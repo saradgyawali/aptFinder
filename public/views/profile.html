@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title></title>
+  <!-- underscore from bower comp -->
+  <script src="/vendor/underscore/underscore-min.js"></script>
+  <!-- jquery -->
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="movein">Move.In</a>
+    </div>
+    <div>
+<!--       <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Move.In</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li> 
+        <li><a href="#">Page 3</a></li> 
+      </ul> -->
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+        <form method="post" action="/logout?_method=DELETE">
+        <li><button type="submit"><span class="glyphicon glyphicon-log-in"></span>Log Out</button></li>
+        </form>
+      </ul>
+    </div>
+
+  </div>
+  <!-- <img src="http://cdn23.us1.fansshare.com/photos/luxuryhomes/apartments-luxurious-apartment-interior-design-by-vestudio-arquitectura-blue-lighting-on-brown-wooden-desk-behind-white-bed-inside-572039523.jpg" class="img-responsive" alt="Responsive image"> -->
+</nav>
+</body>
+</html>
