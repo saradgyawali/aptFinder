@@ -1,0 +1,15 @@
+.col-lg-6 {
+	position: absolute;
+    left: 300px;
+    top: 300px;
+    z-index: +1;
+}
+
+.first {
+	height:200px;
+	width:200px;
+	border:1px solid black;
+	left:10px;
+	top:20px;
+	position:relative;
+}

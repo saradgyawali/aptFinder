@@ -132,6 +132,13 @@ app.get("/movein", function(req, res){
   res.sendFile(views + "/profile.html")
 })
 
+///////////////////////////////////////
+//Mockupsss//////////////////////////
+///////////////////////////////////
+app.get("/mockup", function(req, res){
+  res.sendFile(views + "/mockup.html")
+})
+
 // listen on port 3000
 app.listen(3000, function () {
   console.log('server started on locahost:3000');
