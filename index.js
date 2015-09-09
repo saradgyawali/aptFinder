@@ -14,7 +14,7 @@ app.use("/static", express.static("public"));
 app.use("/vendor",express.static("bower_components"))
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/apartments');
 
 // middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -76,7 +76,7 @@ app.post('/users', function (req, res) {
 
   // create new user with secure password
   User.createSecure(newUser.email, newUser.password, function (err, user) {
-    res.redirect('/profile');
+    res.redirect('/login');
   });
 });
 

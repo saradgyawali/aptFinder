@@ -1,0 +1,6 @@
+need to create schema
+create database
+renter into html
+append the data to mongo
+
+Schema -name, address, contact no, bedrooms, email, picture
