@@ -1,13 +1,18 @@
 // require dependencies
 var mongoose = require('mongoose'),
+    Apartment = require('./apartment.js'),
     Schema = mongoose.Schema,
     bcrypt = require('bcrypt'),
     salt = bcrypt.genSaltSync(10);
 
+
+
+
 // define user schema
 var UserSchema = new Schema({
   email: String,
-  passwordDigest: String
+  passwordDigest: String,
+  apartments: [Apartment]
 });
 
 // create a new user with secure (hashed) password
@@ -55,6 +60,7 @@ UserSchema.methods.checkPassword = function (password) {
 
 // define user model
 var User = mongoose.model('User', UserSchema);
+var Apartment = mongoose.model("Apartment", Apartment);
 
 // export user model
 module.exports = User;

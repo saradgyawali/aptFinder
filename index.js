@@ -3,7 +3,8 @@ var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
-  User = require('./models/user'),
+  db = require('./models'),
+  // User = require('./models/user'),
   session = require('express-session'),
   path= require('path'),
   views = path.join(process.cwd(), '/public/views'),
@@ -14,7 +15,7 @@ app.use("/static", express.static("public"));
 app.use("/vendor",express.static("bower_components"))
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost/apartments');
+// mongoose.connect('mongodb://localhost/apartments');
 
 // middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +42,7 @@ app.use('/', function (req, res, next) {
 
   // finds user currently logged in based on `session.userId`
   req.currentUser = function (callback) {
-    User.findOne({_id: req.session.userId}, function (err, user) {
+    db.User.findOne({_id: req.session.userId}, function (err, user) {
       req.user = user;
       callback(null, user);
     });
@@ -68,6 +69,12 @@ app.get('/signup', function (req, res) {
   });
 });
 
+// signup rout (Creates new user in db)
+app.post('/signup', function(req,res){
+  // take data submitted from user, and create new user
+  // use db.User.createSecure(...);
+});
+
 // user submits the signup form
 app.post('/users', function (req, res) {
 
@@ -75,7 +82,7 @@ app.post('/users', function (req, res) {
   var newUser = req.body.user;
 
   // create new user with secure password
-  User.createSecure(newUser.email, newUser.password, function (err, user) {
+  db.User.createSecure(newUser.email, newUser.password, function (err, user) {
     res.redirect('/login');
   });
 });
@@ -99,7 +106,7 @@ app.post('/login', function (req, res) {
   var userData = req.body.user;
 
   // call authenticate function to check if password user entered is correct
-  User.authenticate(userData.email, userData.password, function (err, user) {
+  db.User.authenticate(userData.email, userData.password, function (err, user) {
     // saves user id to session
     req.login(user);
 
@@ -113,10 +120,11 @@ app.get('/profile', function (req, res) {
   // finds user currently logged in
   req.currentUser(function (err, user) {
     if (user) {
+      console.log("THIS IS USER apartments", user.apartments);
       res.sendFile(views + '/profile.html');
     // redirect if there is no current user
     } else {
-      res.redirect("/profile");
+      res.redirect("/login");
     }
   });
 });
