@@ -17,3 +17,14 @@
 .btn {
 	float: right;
 }
+
+.main_form {
+	height:30px;
+	width:360px;
+	position:relative;
+	left:200px;
+}
+#format{
+	height: 100px;
+	width: 100px;
+}

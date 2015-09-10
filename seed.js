@@ -1,4 +1,3 @@
-//console.log("???");
 
 var db = require("./models");
 //console.log(db);
@@ -8,7 +7,7 @@ var db = require("./models");
 // db.User.save();
 
 
-var user = {"email":"Sarad@hotmail.com", "passwordDigest":"secret"};
+// var user = {"email":"Sarad@hotmail.com", "passwordDigest":"secret"};
 // console.log(newApartment);
 
 /* Add an apartment to an current user */
@@ -66,6 +65,23 @@ var user = {"email":"Sarad@hotmail.com", "passwordDigest":"secret"};
 // 	if(err) {return console.log(err);}
 // 	console.log("New Apartment Added Succesffuly to Apartment DB");
 // });
+
+var aptImages =[
+	{url:"https://upload.wikimedia.org/wikipedia/commons/2/26/Southmoor_Apartment_Hotel.jpg"},
+	{url:"http://www.namhouses.com/wp-content/uploads/2015/03/appartment.jpg"},
+	{url:"http://www.credaichennai.in/sites/www.credaichennai.in/files/Elevation_2.jpg"},
+]
+
+db.Apartment.remove({}, function(err, images){
+	if(err) {return console.log(err);}
+	console.log("images removed");
+	aptImages.forEach(function(image){
+		db.Apartment.create({url:image.url},function(err,newImage){
+			if(err){ return console.log(err);}
+			console.log("image added", newImage.url)
+		});
+	});
+});
 
 
 

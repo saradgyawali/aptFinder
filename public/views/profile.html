@@ -4,6 +4,9 @@
   <!-- underscore from bower comp -->
   <script src="/vendor/underscore/underscore-min.js"></script>
 
+  <!-- UnderScore -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -17,7 +20,35 @@
         <form method="post" action="/logout?_method=DELETE">
           <button type="submit" class="btn btn-danger">Log Out</button>
         </form>
-      <form method="post">
-      <input type="text" name="Name" placeholder="eg. john oliver">
+      <form id="mainForm" class="main_form" method="post" action="/listing">
+      Name<br>
+     <!--  <input type="text" name="Name" class="form-control" id="name_entry" placeholder="eg. john oliver">
+      <br>
+      Phone<br>
+      <input type="text" name="Phone" class="form-control" id="phone_entry" placeholder="eg. 5105298693">
+      <br>
+      Email<br>
+      <input type="text" name="Email" class="form-control" id="email_entry" placeholder="eg. john@ga.com">
+      <br>
+      City<br>
+      <input type="text" name="City" class="form-control" id="city_entry" placeholder="eg. San Francisco">
+      <br>
+      Address<br>
+      <input type="text" name="Address" class="form-control" id="address_entry" placeholder="eg. 225 Bush Street">
+      <br>
+      Bedroom<br>
+      <input type="text" name="Bedroom" class="form-control" id="bedroom_entry" placeholder="eg 1 or 2 .....">
+      <br>
+ -->      Image<br>
+      <input type="text" name="Image" class="form-control" id="image_entry" placeholder="eg. apartment.jpg">
+      <br>
+    <!--   Price<br>
+      <input type="text" name="Price" class="form-control" id="price_entry" placeholder="eg. 2700">
+      <BR> -->
+      <button  type="submit" value="Upload"></button>
+    </form>
+
+
+
 </body>
 </html>

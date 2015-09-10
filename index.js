@@ -33,6 +33,21 @@ app.get('/', function(req,res){
   res.sendFile(views + '/index.html');
 });
 
+app.get('/images',function(req,res){
+  db.Apartment.find({}, function(err,images){
+    res.send(images);
+  });
+});
+
+app.post("/listing", function(req,res){
+
+  db.Apartment.create({url:req.body.url},function(err, image){
+    if(err){console.log(err)}
+      res.sendFile(views+'/listing.html')
+
+  });
+});
+
 // middleware to manage sessions
 app.use('/', function (req, res, next) {
   // saves userId in session for logged-in user
@@ -140,6 +155,14 @@ app.get("/movein", function(req, res){
   res.sendFile(views + "/profile.html")
 })
 
+app.get("/apartments/:cities", function(req, res){
+  var apartments = req.params.cities;
+
+})
+
+// app.get("/listing", function(req, res) {
+//   res.sendFile(views + "/listing.html");
+// });
 ///////////////////////////////////////
 //Mockupsss//////////////////////////
 ///////////////////////////////////
