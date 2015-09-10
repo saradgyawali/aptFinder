@@ -13,3 +13,7 @@
 	top:20px;
 	position:relative;
 }
+
+.btn {
+	float: right;
+}

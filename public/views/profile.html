@@ -3,27 +3,21 @@
 	<title></title>
   <!-- underscore from bower comp -->
   <script src="/vendor/underscore/underscore-min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
   <!-- jquery -->
   <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+
 	<!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
 </head>
-<body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="movein">Move.In</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <!-- <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+<body background="http://www.psdgraphics.com/file/wooden-panels-texture.jpg">
         <form method="post" action="/logout?_method=DELETE">
-        <li><button type="submit"><span class="glyphicon glyphicon-log-in"></span>Log Out</button></li>
+          <button type="submit" class="btn btn-danger">Log Out</button>
         </form>
-      </ul>
-    </div>
-
-  </div>
-</nav>
+      <form method="post">
+      <input type="text" name="Name" placeholder="eg. john oliver">
 </body>
 </html>
