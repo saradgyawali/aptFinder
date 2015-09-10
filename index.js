@@ -33,20 +33,22 @@ app.get('/', function(req,res){
   res.sendFile(views + '/index.html');
 });
 
-app.get('/images',function(req,res){
-  db.Apartment.find({}, function(err,images){
-    res.send(images);
+app.get('/images',function(req,res){  // should be "/apartments"
+  db.Apartment.find({}, function(err,apartments){
+    res.send(apartments); 
   });
 });
 
 app.post("/listing", function(req,res){
-
-  db.Apartment.create({url:req.body.url},function(err, image){
+  console.log("form submitted!! req body is:", req.body);
+  db.Apartment.create({url:req.body.url},function(err, apt){
     if(err){console.log(err)}
-      res.sendFile(views+'/listing.html')
-
-  });
+      res.sendFile(views+'/listing.html') // this should redirect to /listings
+  }); 
 });
+
+//app.get("/listings")...
+// send file listing.html
 
 // middleware to manage sessions
 app.use('/', function (req, res, next) {
@@ -160,15 +162,7 @@ app.get("/apartments/:cities", function(req, res){
 
 })
 
-// app.get("/listing", function(req, res) {
-//   res.sendFile(views + "/listing.html");
-// });
-///////////////////////////////////////
-//Mockupsss//////////////////////////
-///////////////////////////////////
-app.get("/mockup", function(req, res){
-  res.sendFile(views + "/mockup.html")
-})
+
 
 // listen on port 3000
 app.listen(3000, function () {

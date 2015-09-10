@@ -9,7 +9,7 @@ var Apartment = new Schema({
 	// city: String,
 	// address: String,
 	// bedroom: Number,
-	url: String,
+	url: String
 	// price: Number
 });
 
