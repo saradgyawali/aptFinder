@@ -26,6 +26,8 @@ app.use(session({
   secret: 'SuperSecretCookie',
   cookie: { maxAge: 60000 }
 }));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 //static route
 app.get('/', function(req,res){
   res.sendFile(views + '/index.html');
