@@ -14,8 +14,6 @@ var express = require('express'),
 app.use("/static", express.static("public"));
 app.use("/vendor",express.static("bower_components"))
 
-// connect to mongodb
-// mongoose.connect('mongodb://localhost/apartments');
 
 // middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -43,10 +41,16 @@ app.post("/listing", function(req,res){
   console.log("form submitted!! req body is:", req.body);
   db.Apartment.create({url:req.body.url},function(err, apt){
     if(err){console.log(err)}
-      res.sendFile(views+'/listing.html') // this should redirect to /listings
+      // res.sendFile(views+'/listing.html') // this should redirect to /listings
+    res.send(apt);
   }); 
 });
 
+app.get("/listing", function(req, res) {
+  db.Apartment.find({}, function(err, Apartments) {
+    res.send(Apartments);
+  });
+});
 //app.get("/listings")...
 // send file listing.html
 
@@ -156,13 +160,6 @@ app.delete('/logout', function (req, res) {
 app.get("/movein", function(req, res){
   res.sendFile(views + "/profile.html")
 })
-
-app.get("/apartments/:cities", function(req, res){
-  var apartments = req.params.cities;
-
-})
-
-
 
 // listen on port 3000
 app.listen(3000, function () {
