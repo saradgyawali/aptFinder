@@ -17,5 +17,5 @@ function renderData(array){
 	dataToappend =array.map(function(obj){
 		return template({imageObject: obj});
 	});
-	$("#listitems").append(dataToappend);
+	$("#listitems").appen('<img src=" ' + dataToappend + ' ">');
 }

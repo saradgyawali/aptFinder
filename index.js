@@ -50,7 +50,7 @@ app.post("/listing", function(req,res){
 
 app.get("/listing", function(req, res) {
   db.Apartment.find({}, function(err, Apartments) {
-    res.send(Apartments);
+    res.sendFile(views + "/listing.html");
   });
 });
 //app.get("/listings")...
