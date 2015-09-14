@@ -29,6 +29,8 @@ app.use(session({
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //static route
+
+
 app.get('/', function(req,res){
   res.sendFile(views + '/index.html');
 });
@@ -41,16 +43,29 @@ app.get('/images',function(req,res){  // should be "/apartments"
 
 app.post("/listing", function(req,res){
   console.log("form submitted!! req body is:", req.body);
-  db.Apartment.create({url:req.body.url},function(err, apt){
+  
+  name = req.body.name;
+  phone = req.body.phone;
+  address = req.body.address;
+  email = req.body.email;
+  city = req.body.city;
+  bedroom = req.body.bedroom;
+  url = req.body.url;
+  price = req.body.price;
+  console.log("this is the users name", name)
+
+  db.Apartment.createSecure(name, phone, address, email, city, bedroom, url, price, function(err, apt){
     if(err){console.log(err)}
+      console.log("this is after we put it in the db", apt)
       // res.sendFile(views+'/listing.html') // this should redirect to /listings
-    res.send(apt);
+    res.redirect("/listings"); 
   }); 
 });
 
-app.get("/listing", function(req, res) {
+app.get("/listings", function(req, res) {
   db.Apartment.find({}, function(err, Apartments) {
-    res.sendFile(views + "/listing.html");
+    
+    res.sendFile(__dirname + '/public/views/listings.html');
   });
 });
 //app.get("/listings")...
