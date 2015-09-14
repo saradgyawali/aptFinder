@@ -1,7 +1,6 @@
 {
-  "name": "simple_login",
+  "name": "hello",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +13,17 @@
     "express": "^4.13.3",
     "express-session": "^1.11.3",
     "method-override": "^2.3.5",
-    "mongoose": "^4.1.5"
-  }
+    "mongoose": "^4.1.5",
+    "nodemon": "^1.5.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farquhar86/aptFinder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/farquhar86/aptFinder/issues"
+  },
+  "homepage": "https://github.com/farquhar86/aptFinder#readme",
+  "description": ""
 }
